@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⭐ Review Phiên Chợ Số</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d1b00, #4a2a00, #6b3a00);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 248, 235, 0.97);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+            border: 1px solid #f0c27a;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo {
+            font-size: 56px;
+            margin-bottom: 5px;
+        }
+        h1 {
+            color: #4a2a00;
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+        .subtitle {
+            color: #8a6a40;
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .rating {
+            background: #ffedd5;
+            border-radius: 30px;
+            padding: 12px 20px;
+            display: inline-block;
+            margin: 10px 0 20px;
+            border: 1px solid #f0c27a;
+        }
+        .rating .stars {
+            color: #f59e0b;
+            font-size: 28px;
+            letter-spacing: 4px;
+        }
+        .rating .text {
+            font-size: 16px;
+            color: #4a2a00;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .review-box {
+            background: #fff9f0;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 15px 0;
+            text-align: left;
+            border-left: 4px solid #f59e0b;
+        }
+        .review-box h3 {
+            color: #4a2a00;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+        .review-box p, .review-box li {
+            color: #5d4037;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .review-box ul {
+            padding-left: 20px;
+        }
+        .review-box ul li {
+            list-style: disc;
+        }
+        .code-box {
+            background: #fff3e0;
+            border: 2px dashed #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .code-box .label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #f59e0b;
+            color: #2d1b00;
+            padding: 2px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .code-box .code {
+            font-size: 28px;
+            font-weight: 800;
+            color: #4a2a00;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            word-break: break-all;
+        }
+        .code-box .code.loading {
+            color: #999;
+            font-size: 18px;
+        }
+        .instruction {
+            background: #fff8e1;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #5d4037;
+            text-align: left;
+            line-height: 1.8;
+            border: 1px solid #f0c27a;
+        }
+        .instruction strong {
+            color: #d32f2f;
+        }
+        .btn-copy {
+            background: #f59e0b;
+            color: #2d1b00;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+        .btn-copy:hover {
+            background: #e68a00;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+        }
+        .btn-copy.copied {
+            background: #2e7d32;
+            color: white;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+        .footer a {
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .error {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #d32f2f;
+        }
+        .badge {
+            display: inline-block;
+            background: #f59e0b;
+            color: #2d1b00;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="logo">⭐</div>
+        <h1>Review Phiên Chợ Số</h1>
+        <p class="subtitle">Dịch vụ nhận xu uy tín – Tặng 5 xu mỗi lần vượt link</p>
+
+        <!-- Đánh giá sao -->
+        <div class="rating">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="text">4.8 / 5.0 · 1,024+ lượt đánh giá</div>
+        </div>
+
+        <!-- Phần review -->
+        <div class="review-box">
+            <h3>📌 Tổng quan</h3>
+            <p>Phiên Chợ Số là dịch vụ giúp bạn nhận xu miễn phí thông qua vượt link. Cực kỳ dễ dùng, thanh toán nhanh, hỗ trợ tận tình.</p>
+        </div>
+
+        <div class="review-box">
+            <h3>✅ Ưu điểm</h3>
+            <ul>
+                <li>Nhận ngay 5 xu mỗi link vượt</li>
+                <li>Hỗ trợ 2 link/ngày – tối đa 10 xu/ngày</li>
+                <li>Giao diện đơn giản, dễ thao tác</li>
+                <li>Rút xu nhanh, không giới hạn</li>
+            </ul>
+        </div>
+
+        <div class="review-box">
+            <h3>⚠️ Nhược điểm</h3>
+            <ul>
+                <li>Giới hạn 2 link/ngày</li>
+                <li>Cần đăng nhập Discord mới nhận được</li>
+            </ul>
+        </div>
+
+        <!-- Mã code -->
+        <div id="content">
+            <div class="code-box">
+                <span class="label">🔑 MÃ CỦA BẠN</span>
+                <div class="code loading" id="codeDisplay">⏳ Đang tải mã...</div>
+            </div>
+        </div>
+
+        <div class="instruction">
+            <strong>📌 Hướng dẫn nhận xu:</strong><br>
+            1️⃣ Sao chép mã bên trên.<br>
+            2️⃣ Quay lại Discord và nhập lệnh:<br>
+            <code style="background: #e0e0e0; padding: 2px 8px; border-radius: 4px;">/phienchoso &lt;mã&gt;</code><br>
+            3️⃣ Nhận ngay <strong>5 xu</strong> trong ví của bạn!
+        </div>
+
+        <button class="btn-copy" id="copyBtn">📋 Sao chép mã</button>
+
+        <div class="footer">
+            <p>Mã có hiệu lực trong <strong>5 phút</strong> • 
+            <a href="#" onclick="window.location.reload();">🔄 Làm mới trang</a></p>
+        </div>
+    </div>
+
+    <script>
+        function getCodeFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('code');
+        }
+
+        const code = getCodeFromURL();
+        const codeDisplay = document.getElementById('codeDisplay');
+        const copyBtn = document.getElementById('copyBtn');
+
+        if (code) {
+            codeDisplay.textContent = code;
+            codeDisplay.classList.remove('loading');
+        } else {
+            codeDisplay.textContent = '❌ Không tìm thấy mã';
+            codeDisplay.style.color = '#d32f2f';
+            codeDisplay.classList.remove('loading');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.innerHTML = '⚠️ <strong>Không tìm thấy mã!</strong><br>Vui lòng quay lại Discord và bấm nút "💰 Nhận xu" để tạo link mới.';
+            document.getElementById('content').appendChild(errorDiv);
+        }
+
+        copyBtn.addEventListener('click', async function() {
+            const textToCopy = codeDisplay.textContent;
+            if (textToCopy.includes('❌') || textToCopy.includes('⏳')) {
+                alert('Không có mã để sao chép! Vui lòng làm mới trang hoặc tạo link mới.');
+                return;
+            }
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                this.textContent = '✅ Đã sao chép!';
+                this.classList.add('copied');
+                setTimeout(() => {
+                    this.textContent = '📋 Sao chép mã';
+                    this.classList.remove('copied');
+                }, 3000);
+            } catch (err) {
+                const textarea = document.createElement('textarea');
+                textarea.value = textToCopy;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                this.textContent = '✅ Đã sao chép!';
+                this.classList.add('copied');
+                setTimeout(() => {
+                    this.textContent = '📋 Sao chép mã';
+                    this.classList.remove('copied');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
